@@ -1,16 +1,16 @@
 <div class="container">
     <div class="row" id="commentHead">
-        <div class="head grey-text text-darken-2 col s7 right">
+        <div *ngIf="selectedGame" class="head grey-text text-darken-2 col s7 right">
             نظرات کاربران ({{selectedGame.number_of_comments}} نظر )
         </div>
         <div class="col s5">
             <a (click)="onClick()" class="btn blue white-text left" id="leaveComment">نظر دهید</a>
         </div>
     </div>
-    <ul id="comments" class="collection striped">
+    <ul *ngIf="commentsTest.length > 0" id="comments" class="collection striped">
         <li id="collection" *ngFor="let comment of commentsTest" class="row collection-item avatar">
             <div class="col s1 right">
-                <img class="circle" src="{{ comment.player.URL }}">
+                <img class="circle" src="{{ comment.player.avatar }}">
             </div>
             <div  class="col s11 right">
                 <div class="grey-text col-s12 right" id="date">{{ comment.date }}</div>
@@ -31,7 +31,7 @@
             </div>
         </li>
     </ul>
-    <div class="center row">
-        <a class="btn blue white-text">بارگذاری نظرات بعدی</a>
+    <div class="center row" *ngIf="!finished">
+        <a (click)="getComments()" class="btn blue white-text">بارگذاری نظرات بعدی</a>
     </div>
 </div>

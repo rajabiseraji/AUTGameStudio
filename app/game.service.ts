@@ -2,12 +2,13 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http, URLSearchParams,Response, RequestOptions, Jsonp  } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import {Observable} from 'rxjs/Rx';
+import {Observable, ObjectUnsubscribedError} from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 
 import { Game } from './game';
 import { Comment } from './comment';
 import {Tutorial} from "./Tutorial";
+import {Record} from "./record";
 
 @Injectable()
 export class GameService {
@@ -45,11 +46,53 @@ export class GameService {
         .catch(this.handleError);
   }
 
+  getSimilar(id: string): Observable<Game[]>{
+    const url = `http://api.ie.ce-it.ir/F95/games/${id}/related_games.json`;
+    return this.jsonp.get(url)
+        .map(this.extractGamesRelated)
+        .catch(this.handleError);
+  }
+
+  getLeaderboard(id: string): Observable<Record[]>{
+    const url = `http://api.ie.ce-it.ir/F95/games/${id}/leaderboard.json`;
+    return this.jsonp.get(url)
+        .map(this.extractLeaderboard)
+        .catch(this.handleError);
+  }
+
+  getComments(id: string, offset:number): Observable<Comment[]>{
+    let url: string ;
+    if (offset==0)
+      url = `http://api.ie.ce-it.ir/F95/games/${id}/comments`;
+    else
+      url = `http://api.ie.ce-it.ir/F95/games/${id}/comments?offset=${offset}`;
+    return this.jsonp.get(url)
+        .map(this.extractCommentPageComments)
+        .catch(this.handleError);
+  }
+
+
+
   getGame(id: string): Observable<Game> {
     const url = `http://api.ie.ce-it.ir/F95/games/${id}/header.json`;
     return this.jsonp.get(url)
         .map((res:Response) => res.json().response.result.game || { })
         .catch(this.handleError);
+  }
+
+  private extractCommentPageComments(res: Response) {
+    let body = res.json();
+    return body.response.result.comments || { };
+  }
+
+  private extractLeaderboard(res: Response) {
+    let body = res.json();
+    return body.response.result.leaderboard || { };
+  }
+
+  private extractGamesRelated(res: Response) {
+    let body = res.json();
+    return body.response.result.games || { };
   }
 
 

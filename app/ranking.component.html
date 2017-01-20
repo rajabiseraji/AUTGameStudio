@@ -5,7 +5,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="records[0]">
     <div class="card hoverable">
         <div class="row card-content">
             <!--<div class="mm col s6 offset-s3">-->
@@ -17,31 +17,31 @@
                     <div class="col-4 rate">
                         <div class="col-12 place">2</div>
                         <div class="col-12 image">
-                            <img class="img-round silver-border" src="{{records[0].player.URL}}" height="100px" width="100px">
+                            <img class="img-round silver-border" src="{{records[1].player.avatar}}" height="100px" width="100px">
                             <div class="roundHex"></div>
                             <div class="roundHexBorder"></div>
-                            <div class="player-rank-hex">{{records[0].level}}</div>
-                        </div>
-                        <div class="col-12 winner-name">{{records[0].player.name}}</div>
-                        <div class="col-12 winner-score">{{records[0].score}}</div>
-                    </div>
-
-                    <div class="col-4 rate first">
-                        <div class="col-12 place">1</div>
-                        <div class="col-12 image">
-                            <img class="img-round gold-border" src="{{records[1].player.URL}}" height="110px" width="110px">
-                            <div class="roundHexBorder"></div>
-                            <div class="roundHex"></div>
                             <div class="player-rank-hex">{{records[1].level}}</div>
                         </div>
                         <div class="col-12 winner-name">{{records[1].player.name}}</div>
                         <div class="col-12 winner-score">{{records[1].score}}</div>
                     </div>
 
+                    <div class="col-4 rate first">
+                        <div class="col-12 place">1</div>
+                        <div class="col-12 image">
+                            <img class="img-round gold-border" src="{{records[0].player.avatar}}" height="110px" width="110px">
+                            <div class="roundHexBorder"></div>
+                            <div class="roundHex"></div>
+                            <div class="player-rank-hex">{{records[0].level}}</div>
+                        </div>
+                        <div class="col-12 winner-name">{{records[0].player.name}}</div>
+                        <div class="col-12 winner-score">{{records[0].score}}</div>
+                    </div>
+
                     <div class="col-4 rate">
                         <div class="col-12 place">3</div>
                         <div class="col-12 image">
-                            <img class="img-round bronze-border" src="{{records[2].player.URL}}" height="100px" width="100px">
+                            <img class="img-round bronze-border" src="{{records[2].player.avatar}}" height="100px" width="100px">
                             <div class="roundHexBorder "></div>
                             <div class="roundHex "></div>
                             <div class="player-rank-hex ">{{records[2].level}}</div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col s1 ">{{record.level}}</div>
                         <div class="col s4 ">{{record.player.name}}</div>
-                        <div class="col s1 "><img src="{{record.player.URL}}" class="circle" width="30px" height="30px"></div>
+                        <div class="col s1 "><img src="{{record.player.avatar}}" class="circle" width="30px" height="30px"></div>
                         <div class="col s1 ">
                             <i class="fa fa-star yellow-text"  aria-hidden="true" *ngIf="record==records[0]"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="record==records[1]"></i>

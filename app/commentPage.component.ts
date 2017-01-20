@@ -8,6 +8,8 @@ import { GameService } from './game.service';
 import { Game } from './game';
 import {Comment} from './comment';
 import {Category} from './category';
+import {ActivatedRoute} from '@angular/router'
+
 
 @Component({
     moduleId : module.id,
@@ -18,11 +20,45 @@ import {Category} from './category';
     styleUrls: ['gameCard.component.css','commentPage.component.css', 'materialize.css', 'mystyle.css', 'font-awesome.min.css']
 })
 export class CommentPageComponent implements OnInit{
-    constructor(overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal) {
+    offset:number = 0 ;
+    curGameName: string;
+    commentsTest: Array<Comment> = [];
+    finished: boolean = false;
+    selectedGame: Game;
+
+    constructor(overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal, public gameService: GameService, private route: ActivatedRoute ) {
         overlay.defaultViewContainer = vcRef;
     }
 
     ngOnInit(): void {
+        this.route.params.subscribe(params => {
+            this.curGameName = this.route.snapshot.parent.params['game'];
+            if (this.curGameName) {
+                this.gameService.getGame(this.curGameName)
+                    .subscribe(
+                        game => this.selectedGame = game, //Bind to view
+                        err => {
+                            // Log errors if any
+                            console.log(err);
+                        });
+                this.getComments();
+
+            }
+        });
+    }
+
+    getComments(){
+        this.gameService.getComments(this.curGameName, this.offset)
+            .subscribe(
+                comments => {for(let c of comments) this.commentsTest.push(c);
+                if(comments.length!=0)
+                    this.offset += comments.length;
+                else
+                    this.finished = true;}, //Bind to view
+                err => {
+                    // Log errors if any
+                    console.log(err);
+                });
     }
 
     onClick(){
@@ -43,96 +79,96 @@ export class CommentPageComponent implements OnInit{
             </ul>`)
             .open();
     }
-    selectedGame : Game = {
-        title: 'بازی Uncharted',
-        abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-        info: 'اوره دیگه',
-        categories: [new Category('اکشن'), new Category('چرت')],
-        rate: 2,
-        large_image: 'app/img/421645.jpg',
-        small_image: 'app/img/421645.jpg',
-        number_of_comments: 73
-    };
+    // selectedGame : Game = {
+    //     title: 'بازی Uncharted',
+    //     abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
+    //     info: 'اوره دیگه',
+    //     categories: [new Category('اکشن'), new Category('چرت')],
+    //     rate: 2,
+    //     large_image: 'app/img/421645.jpg',
+    //     small_image: 'app/img/421645.jpg',
+    //     number_of_comments: 73
+    // };
 
 
-    commentsTest: Array<Comment> = [  //must be retrieved using a comment service
-        {
-            text: 'بهترین بازی عمرم بود',
-            rate: 5,
-            date: 'دوشنبه فلان روز فلان روز',
-            player: {
-                name: 'mammad',
-                URL: '/app/img/421645.jpg'
-            },
-            game: {
-                title: 'بازی سازی امیرکبیر',
-                abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-                info: 'اوره دیگه',
-                categories: [new Category('اکشن'), new Category('چرت')],
-                rate: 2,
-                large_image: 'img/call-of-duty-background-18.jpg',
-                small_image: 'img/call-of-duty-background-18.jpg',
-                number_of_comments: 23
-            }
-        },
-        {
-            text: 'بهترین این  عمرم بود',
-            rate: 4,
-            date: 'دوشنبه فلان روز فلان روز',
-            player: {
-                name: 'mammad',
-                URL: '/app/img/421645.jpg'
-            },
-            game: {
-                title: 'بازی سازی امیرکبیر',
-                abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-                info: 'اوره دیگه',
-                categories: [new Category('اکشن'), new Category('چرت')],
-                rate: 2,
-                large_image: 'img/call-of-duty-background-18.jpg',
-                small_image: 'img/call-of-duty-background-18.jpg',
-                number_of_comments: 23
-            }
-        },
-        {
-            text: 'بهترین بازی عمرم بود',
-            rate: 2,
-            date: 'دوشنبه فلان روز فلان روز',
-            player: {
-                name: 'mammad',
-                URL: '/app/img/421645.jpg'
-            },
-            game: {
-                title: 'بازی سازی امیرکبیر',
-                abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-                info: 'اوره دیگه',
-                categories: [new Category('اکشن'), new Category('چرت')],
-                rate: 2,
-                large_image: 'img/call-of-duty-background-18.jpg',
-                small_image: 'img/call-of-duty-background-18.jpg',
-                number_of_comments: 23
-            }
-        }, {
-            text: 'بهترین بازی عمرم بود',
-            rate: 3,
-            date: 'دوشنبه فلان روز فلان روز',
-            player: {
-                name: 'mammad',
-                URL: '/app/img/421645.jpg'
-            },
-            game: {
-                title: 'بازی سازی امیرکبیر',
-                abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-                info: 'اوره دیگه',
-                categories: [new Category('اکشن'), new Category('چرت')],
-                rate: 2,
-                large_image: 'img/call-of-duty-background-18.jpg',
-                small_image: 'img/call-of-duty-background-18.jpg',
-                number_of_comments: 23
-            }
-        }
-
-    ];
+    // commentsTest: Array<Comment> = [  //must be retrieved using a comment service
+    //     {
+    //         text: 'بهترین بازی عمرم بود',
+    //         rate: 5,
+    //         date: 'دوشنبه فلان روز فلان روز',
+    //         player: {
+    //             name: 'mammad',
+    //             URL: '/app/img/421645.jpg'
+    //         },
+    //         game: {
+    //             title: 'بازی سازی امیرکبیر',
+    //             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
+    //             info: 'اوره دیگه',
+    //             categories: [new Category('اکشن'), new Category('چرت')],
+    //             rate: 2,
+    //             large_image: 'img/call-of-duty-background-18.jpg',
+    //             small_image: 'img/call-of-duty-background-18.jpg',
+    //             number_of_comments: 23
+    //         }
+    //     },
+    //     {
+    //         text: 'بهترین این  عمرم بود',
+    //         rate: 4,
+    //         date: 'دوشنبه فلان روز فلان روز',
+    //         player: {
+    //             name: 'mammad',
+    //             URL: '/app/img/421645.jpg'
+    //         },
+    //         game: {
+    //             title: 'بازی سازی امیرکبیر',
+    //             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
+    //             info: 'اوره دیگه',
+    //             categories: [new Category('اکشن'), new Category('چرت')],
+    //             rate: 2,
+    //             large_image: 'img/call-of-duty-background-18.jpg',
+    //             small_image: 'img/call-of-duty-background-18.jpg',
+    //             number_of_comments: 23
+    //         }
+    //     },
+    //     {
+    //         text: 'بهترین بازی عمرم بود',
+    //         rate: 2,
+    //         date: 'دوشنبه فلان روز فلان روز',
+    //         player: {
+    //             name: 'mammad',
+    //             URL: '/app/img/421645.jpg'
+    //         },
+    //         game: {
+    //             title: 'بازی سازی امیرکبیر',
+    //             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
+    //             info: 'اوره دیگه',
+    //             categories: [new Category('اکشن'), new Category('چرت')],
+    //             rate: 2,
+    //             large_image: 'img/call-of-duty-background-18.jpg',
+    //             small_image: 'img/call-of-duty-background-18.jpg',
+    //             number_of_comments: 23
+    //         }
+    //     }, {
+    //         text: 'بهترین بازی عمرم بود',
+    //         rate: 3,
+    //         date: 'دوشنبه فلان روز فلان روز',
+    //         player: {
+    //             name: 'mammad',
+    //             URL: '/app/img/421645.jpg'
+    //         },
+    //         game: {
+    //             title: 'بازی سازی امیرکبیر',
+    //             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
+    //             info: 'اوره دیگه',
+    //             categories: [new Category('اکشن'), new Category('چرت')],
+    //             rate: 2,
+    //             large_image: 'img/call-of-duty-background-18.jpg',
+    //             small_image: 'img/call-of-duty-background-18.jpg',
+    //             number_of_comments: 23
+    //         }
+    //     }
+    //
+    // ];
 
     counter: Array<any> = [1,2,3,4,5];
 }

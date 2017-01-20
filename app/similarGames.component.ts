@@ -8,6 +8,7 @@ import { Game } from './game';
 import {Comment} from './comment';
 import { Player } from './player';
 import { Category } from './category';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
     moduleId : module.id,
@@ -15,59 +16,34 @@ import { Category } from './category';
 
     // directives: [OwlCarousel],
     templateUrl: 'similarGames.component.html',
-    styleUrls: ['gameCard.component.css','similarGames.component.css', 'materialize.css', 'mystyle.css', 'font-awesome.min.css']
+    styleUrls: ['gameCard.component.css', 'starsShow.component.css','similarGames.component.css', 'materialize.css', 'mystyle.css', 'font-awesome.min.css']
 })
 export class SimilarGamesComponent implements OnInit{
-    games : Array<Game> = [
-        {
-            title: 'بازی سازی امیرکبیر',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/call-of-duty-background-18.jpg',
-            small_image: 'app/img/call-of-duty-background-18.jpg',
-            number_of_comments: 23,
+    games : Array<Game> ;
+    curGameName: string;
 
-        },
-        {
-            title: 'بازی سازی امیرکبیر',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/call-of-duty-background-18.jpg',
-            small_image: 'app/img/call-of-duty-background-18.jpg',
-            number_of_comments: 23
-        },
-        {
-            title: 'بازی GTA V',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/23815901722_4d1edf4ed1_b.jpg',
-            small_image: 'app/img/23815901722_4d1edf4ed1_b.jpg',
-            number_of_comments: 50
-        },
-        {
-            title: 'بازی Uncharted',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/421645.jpg',
-            small_image: 'app/img/421645.jpg',
-            number_of_comments: 73
-        }
-    ];
 
-    categories: Array<string> = [
-        "اکشن", "هیجانی", "چرت و پرت"
-    ];
+    constructor(public gameService: GameService, private router: Router, private route: ActivatedRoute){
+    }
+
+
+    goTo(gameTitle: string){
+        this.router.navigate(['/',gameTitle]);
+    }
 
     ngOnInit(): void {
-
+        this.route.params.subscribe(params => {
+            this.curGameName = this.route.snapshot.parent.params['game'];
+            if (this.curGameName) {
+                this.gameService.getSimilar(this.curGameName)
+                    .subscribe(
+                        game => this.games = game, //Bind to view
+                        err => {
+                            // Log errors if any
+                            console.log(err);
+                        });
+            }
+        });
     }
 
 

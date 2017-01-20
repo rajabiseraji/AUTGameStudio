@@ -3,8 +3,10 @@
  */
 import {Player} from './player'
 export class Record {
-    player: Player;
-    score: number;
-    level: number;
-    displacement: number;
+    constructor(
+     public   player: Player,
+    public score: number,
+    public level: number,
+    public displacement: number
+    ){};
 }
