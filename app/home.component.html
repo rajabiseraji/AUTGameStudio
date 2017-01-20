@@ -1,0 +1,113 @@
+<div id="main" [style.backgroundImage]="'url(app/' + currentGame.large_image + ')'">
+    <div id="overlay"></div>
+    <div class="container">
+        <nav class="transparent ">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo right"><i class="fa fa-gamepad fa-5x right" aria-hidden="true"></i><strong>امیرکبیر <span class="blue-text text-lighten-2">استودیو</span></strong></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a [routerLink]="'/register'" class="blue">ثبت نام</a></li>
+                    <li><a [routerLink]="'/login'">ورود</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="bigImage" class="row col s12 " >
+            <div id="InfoOnBigImage" class="right" >
+                <div class="row">
+                    <h2 class="col s12 white-text">{{ currentGame.title }}</h2>
+                </div>
+                <div class="row">
+                    <pre class="col s12 white-text">{{ currentGame.abstract }}</pre>
+                </div>
+                <div class="row">
+                    <div class="col s4 white-text">
+                        <a href="#!" class="white-text"><i class="fa fa-play-circle fa-2x" aria-hidden="true"></i><span>تریلر این بازی</span></a>
+                    </div>
+                    <div class="col s7">
+                        <a href="#!" class="btn blue">ورود به صفحه‌ی بازی</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="slider" class="row slider">
+    <li class="col s2 right" *ngFor="let game of games" [style.backgroundImage]="'url(app/' + game.large_image + ')'">
+        <!-- <div id="sliderOverlay" class="row right"></div> -->
+        <div class="row right">
+            <div id="gameTitleSlider" class="right">{{ game.title }}</div>
+            <div id="gameCommentsNumberSlider">تعداد نظرات: {{ game.number_of_comments }}</div>
+        </div>
+        <div class="row right">
+            <a class="btn white grey-text" href="">
+                صفحه بازی
+            </a>
+        </div>
+        <!-- {{ game.title }} -->
+    </li>
+</div>
+
+<div class="container">
+    <div id="newGames" class="row">
+        <!--<gameCard></gameCard>-->
+    </div>
+</div>
+<div id="commentsAndTutorials" class="row grey lighten-3">
+    <div class="container ">
+        <div class="row">
+            <h4><strong>نظرات کاربران و راهنمای بازی‌ها</strong></h4>
+            <div>
+                <p>این چیزا و این چیزا و آن چیزا و اون یکی چیزا و همه چی چیز و همه چیز چیزنما</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m6 s12 right">
+                <h5 class="grey-text"><strong>نظرات و گفت و گوها</strong></h5>
+                <ul id="comments">
+                    <li *ngFor="let comment of commentsTest" class="row">
+                        <div class="col s2  right">
+                            <img class="circle responsive-image" width="50px" height="50px" src="{{ comment.player.URL }}">
+                        </div>
+                        <div class="col s10 right">
+                            <span class="blue-text">{{ comment.text }}</span>
+                            <div class="grey-text" id="date">{{ comment.date }}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col m6 s12 right">
+                <h5 class="grey-text"><strong>آخرین راهنماهای بازی‌ها</strong></h5>
+                <ul id="comments">
+                    <li *ngFor="let tutorial of tutorials" class="row">
+                        <div class="col s2  right">
+                            <img class="circle responsive-image" width="50px" height="50px" src="{{ tutorial.game.small_image }}">
+                        </div>
+                        <div class="col s10 right">
+                            <span class="blue-text">{{ tutorial.title }}</span>
+                            <div class="grey-text" id="date">{{ tutorial.date }}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="endPhoto" class="row">
+    <div id="overlayBlue">
+
+        <div id="infoOnEndphoto" class="row">
+
+        </div>
+    </div>
+    <div id="textOn" style="position: relative; color: white; z-index: 5000">
+        <div>
+            <h2 class="center white-text">به جامعه بازی‌سازان امیرکبیر بپیوندید</h2>
+        </div>
+        <h4 class="center white-text">بیش از ۵۰۰۰ عضو از سرتاسر کشور</h4>
+
+
+        <div class="row">
+            <a id="but" href="" class="btn col s2 offset-s5 white center grey-text text-darken-2"><strong class="grey-text"></strong>به ما بپیوندید</a>
+        </div>
+    </div>
+</div>

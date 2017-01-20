@@ -1,0 +1,16 @@
+<div *ngIf="selectedGame" class="card=panel" >
+<div class="row">	
+	<div class="card col l3 m6 s12 no-padding">
+			<div class="card-image">
+              <img class="responsive-image"  [src]="selectedGame.small_image" width="30px">
+            <div class="card-content right blue-text row">
+              <div id="cardTitle" class="right col s12">{{ selectedGame.title }}</div>
+              <span class="right blue col s12" *ngFor="let category of categories">
+              	{{category.name}},
+              </span>
+              <starsShow></starsShow>
+            </div>
+            </div>
+	</div>
+</div>
+</div>

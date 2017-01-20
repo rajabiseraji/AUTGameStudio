@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row" id="commentHead">
+        <div class="head grey-text text-darken-2 col s7 right">
+            رتبه‌بندی و امتیازات
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card hoverable">
+        <div class="row card-content">
+            <!--<div class="mm col s6 offset-s3">-->
+            <div class="brand">
+                برترین‌ها
+            </div>
+            <div class="form col-12">
+                <div class="row top-players">
+                    <div class="col-4 rate">
+                        <div class="col-12 place">2</div>
+                        <div class="col-12 image">
+                            <img class="img-round silver-border" src="{{records[0].player.URL}}" height="100px" width="100px">
+                            <div class="roundHex"></div>
+                            <div class="roundHexBorder"></div>
+                            <div class="player-rank-hex">{{records[0].level}}</div>
+                        </div>
+                        <div class="col-12 winner-name">{{records[0].player.name}}</div>
+                        <div class="col-12 winner-score">{{records[0].score}}</div>
+                    </div>
+
+                    <div class="col-4 rate first">
+                        <div class="col-12 place">1</div>
+                        <div class="col-12 image">
+                            <img class="img-round gold-border" src="{{records[1].player.URL}}" height="110px" width="110px">
+                            <div class="roundHexBorder"></div>
+                            <div class="roundHex"></div>
+                            <div class="player-rank-hex">{{records[1].level}}</div>
+                        </div>
+                        <div class="col-12 winner-name">{{records[1].player.name}}</div>
+                        <div class="col-12 winner-score">{{records[1].score}}</div>
+                    </div>
+
+                    <div class="col-4 rate">
+                        <div class="col-12 place">3</div>
+                        <div class="col-12 image">
+                            <img class="img-round bronze-border" src="{{records[2].player.URL}}" height="100px" width="100px">
+                            <div class="roundHexBorder "></div>
+                            <div class="roundHex "></div>
+                            <div class="player-rank-hex ">{{records[2].level}}</div>
+                        </div>
+                        <div class="col-12 winner-name">{{records[2].player.name}}</div>
+                        <div class="col-12 winner-score">{{records[2].score}}</div>
+                    </div>
+
+                </div>
+
+                <ul class="collection striped">
+                    <li class="collection-header row ">
+                        <div class="col s2 ">امتیاز</div>
+                        <div class="col s2 ">تغییر رتبه</div>
+                        <div class="col s1 ">سطح</div>
+                        <div class="col s1 offset-s4">بازیکن</div>
+                        <div class="col s1 offset-s1">رتبه</div>
+                    </li>
+                    <li class="collection-item row" *ngFor="let record of records">
+                        <div class="col s2 ">({{record.score}})</div>
+                        <div class="col s2" id="displacement">({{record.displacement}})
+                            <i class="fa fa-caret-up green-text" aria-hidden="true" *ngIf="record.displacement>0"></i>
+                            <i class="fa fa-caret-down red-text" aria-hidden="true" *ngIf="record.displacement<0"></i>
+                        </div>
+                        <div class="col s1 ">{{record.level}}</div>
+                        <div class="col s4 ">{{record.player.name}}</div>
+                        <div class="col s1 "><img src="{{record.player.URL}}" class="circle" width="30px" height="30px"></div>
+                        <div class="col s1 ">
+                            <i class="fa fa-star yellow-text"  aria-hidden="true" *ngIf="record==records[0]"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="record==records[1]"></i>
+                            <i class="fa fa-star red-text"  aria-hidden="true" *ngIf="record==records[2]"></i>
+                        </div>
+                        <div class="col s1 ">{{record.level}}</div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="form-footer col-12">
+                <i class="fa fa-ellipsis-h fa-2x" aria-hidden="true"></i>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+
+</div>

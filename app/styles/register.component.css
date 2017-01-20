@@ -1,0 +1,78 @@
+/* 	css rules for register.html page
+	author: 9231039;
+	date: 11-11-16;
+	version: 0.1;
+*/
+@media screen and (min-width: 1500px){
+	.col-4{
+		width: 20%;
+	}
+	.col-off-4{
+		margin-left: 10%;
+	}
+}
+
+
+input[name="register"]{
+	background-color: rgb(40,121,255);
+}
+
+
+input[name="register"]:hover{
+	background: rgb(50,130,255);
+	box-shadow: rgb(230,230,230) 0px 0px 4px 2px;
+}
+.footer{
+	margin-bottom: 10%;
+}
+
+
+nav i{
+	color: white;
+}
+
+
+
+ input[type=checkbox] {
+     position: relative;
+     padding-right: -10px;
+     line-height: 0.5;
+     border: none;
+     outline: none;
+}
+
+ input[type=checkbox]:before {
+     position: absolute;
+     right: -5px;
+	background: rgb(245,245,245);
+	height: 100%;
+	width: 140%;
+	font-size: 33px;
+    font-family: FontAwesome;
+    color: rgb(128,128,128);
+    display: inline-block;
+    content:"  \f096";
+}
+
+ input[type=checkbox]:checked:before {
+     font-family: FontAwesome;
+    display: inline-block;
+    content:"  \f14a";
+    color: rgb(217,52,108);
+}
+
+a{
+	padding-bottom: 1px;
+	border-bottom: 1px solid;
+	text-decoration: none;
+}
+
+#test{
+	line-height: 1.6;
+}
+
+
+.remember{
+	padding-right: 1px;
+	padding-bottom: 2px;
+}

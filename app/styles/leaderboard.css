@@ -1,0 +1,252 @@
+/* 	css rules for leaderboard.html page
+	author: 1111111;
+	date: dd-mm-yy;
+	version: 0.1;
+*/
+
+
+
+@media screen and (min-width: 1500px){
+	.col-6{
+		width: 40%;
+	}
+	.col-off-3{
+		left: 30%; 
+	}
+
+	.mm{
+		left: 40vw;
+	}
+}
+
+.mm{
+	max-width: 600px;
+}
+
+.brand{
+	color: black;
+	margin-bottom: 20px;
+}
+
+.form-footer{
+	color: rgb(189,189,189);
+	text-align: center;
+	/*border-bottom: 2px silver solid;*/
+}
+
+
+.img-round{
+	border-radius: 50%;
+	position: relative;
+}
+
+.silver-border{
+	border: 3px solid silver;
+}
+
+.gold-border{
+	border: 3px solid gold;
+}
+
+.bronze-border{
+	border: 3px solid rgb(180,95,64);
+}
+
+.rate{
+	text-align: center;
+}
+
+.place{
+	font-size: 20px;
+	color: #4c4c4c;
+	padding-bottom: 3px;
+}
+
+.place .col-12{
+	position: absolute;
+}
+
+.first{
+	margin-top: -30px;
+}
+
+.fa-star{
+	color: rgb(227,227,227);
+}
+
+.top-players{
+	border-bottom: 2px solid rgb(227,227,227);
+	margin: 0 25px 0 25px;
+	padding-bottom: 20px;
+}
+
+.star-full{
+	color: gold;
+}
+
+.winner-name, .player-name{
+	font-size: 20px;
+	color: #4c4c4c;
+}
+
+.winner-score{
+	font-size: 24px;
+	/*color: rgb(121,178.61);*/
+	color: green;
+}
+
+
+.rate *{
+	padding: 0;
+}
+
+.rate{
+	padding: 0;
+}
+
+ul{
+	list-style: none;
+}
+
+.player-name{
+	padding-bottom: 0;
+}
+
+.player-score{
+	padding-top: 0;
+	font-size: 22px;
+	color: green;
+}
+
+.player-stars, .player-index{
+	padding-top: 40px;
+}
+
+ul .col-12 { 
+	padding-top: 0;
+	padding-bottom: 0;
+ }
+
+ ul{
+ 	padding-right: 0;
+ 	margin-right: 0;
+ }
+
+ li:hover{
+ 	background: rgb(235,235,235);
+ }
+
+ li:hover .fa-star{
+ 	color: white;
+ }
+
+ li:hover .star-full{
+ 	color: gold;
+ }
+
+ li{
+ 	padding-right: 0;
+ }
+
+.roundHex {
+	z-index: 201;
+	top: -65%;
+	left: 21%;
+	transform: scale(0.085);
+    position:absolute;
+    margin:0 auto;
+    background:transparent;
+    border-radius:35px;
+    height:300px;
+    width:180px;
+    background: #4c4c4c;
+    box-sizing:border-box;
+    transition:all 1s;
+    border:30px solid transparent;
+/*    border-top-color:white;
+    border-bottom-color:white;
+*/}
+.roundHex:before,.roundHex:after {
+    content:"";
+    border:inherit;
+    position:absolute;
+    top:-30px;
+    left:-30px;
+    background:inherit;
+    border-radius:inherit;
+    height:100%;
+    width:100%;
+}
+.roundHex:before{
+      transform:rotate(60deg);
+}
+.roundHex:after{
+      transform:rotate(-60deg);
+}
+
+
+.roundHexBorder {
+	z-index: 200;
+	top: -65%;
+	left: 21%;
+	transform: scale(0.1);
+    position:absolute;
+    margin:0 auto;
+    background:transparent;
+    border-radius:25px;
+    height:300px;
+    width:180px;
+    background: white;
+    box-sizing:border-box;
+    transition:all 1s;
+    border:30px solid transparent;
+/*    border-top-color:white;
+    border-bottom-color:white;
+*/}
+.roundHexBorder:before,.roundHexBorder:after {
+    content:"";
+    border:inherit;
+    position:absolute;
+    top:-30px;
+    left:-30px;
+    background:inherit;
+    border-radius:inherit;
+    height:100%;
+    width:100%;
+}
+.roundHexBorder:before{
+      transform:rotate(60deg);
+}
+.roundHexBorder:after{
+      transform:rotate(-60deg);
+}
+
+
+.player-rank-hex{
+	z-index: 202;
+	top: 62%;
+	right: 26%;
+	position: absolute;
+	color: white;
+}
+
+.first .roundHexBorder {
+	top: -55%;	
+}
+
+.first .roundHex{
+	top: -55%;
+}
+
+.player-img .roundHexBorder{
+	left: -28%;
+}
+
+.player-img .roundHex{
+	left: -28%;
+}
+
+.image, .player-img{
+	position: relative;
+}
+

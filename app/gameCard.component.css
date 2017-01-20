@@ -1,0 +1,18 @@
+img {
+	height: 10em;
+	width: 5em;
+}
+
+#cardTitle{
+	font-size: 1.1em;
+	font-weight: 700;
+	padding-right: 0;
+}
+
+.card-content{
+	height: 100px;
+}
+
+#sim{
+	margin: 10px;
+}

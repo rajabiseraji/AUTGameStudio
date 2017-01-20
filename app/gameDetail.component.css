@@ -1,0 +1,75 @@
+.gameDetailRate{
+    font-size: 0.6em;
+}
+
+.gameDetailCategories{
+    font-size: 0.6em;
+}
+
+
+#InfoOnBigImageDetail{
+    position: relative;
+    margin-top: 0;
+}
+
+#starDetail{
+    padding-right: 0;
+}
+
+#gameDetailInfo{
+    padding-top: 2%;
+}
+
+#gameDetailSmallImage{
+    border-radius: 10px;
+}
+
+#main{
+    position: relative;
+    height: 200px;
+    width: 100vw;
+    /*background-image : url('app'+{{ currentGame.large_image }});*/
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+#maindetail{
+    background-repeat: no-repeat;
+}
+
+#overlayDetail{
+    position: absolute;
+    width: 100%;
+    height: 160px;
+
+    background: rgba(82,82,82,0.87);
+    background: -moz-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(82,82,82,0.87)), color-stop(67%, rgba(41,32,32,0.94)), color-stop(100%, rgba(41,32,32,0.97)));
+    background: -webkit-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+    background: -o-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+    background: -ms-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+    background: linear-gradient(to bottom, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#525252', endColorstr='#292020', GradientType=0 );
+
+}
+
+#gameDetailInfo{
+    margin-bottom: 0px;
+}
+
+
+#tabHead .container div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+#search{
+    line-height: 0.5;
+}
+
+
+
+.tabSelected{
+    border-bottom: 2px #1976d2 solid;
+}

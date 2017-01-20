@@ -1,0 +1,118 @@
+<div class="row" id="firstBar" >
+    <div id="mainDetail" [style.backgroundImage]="'url('+currentGame.large_image+')'">
+        <div id="overlayDetail"></div>
+        <div class="container" id="InfoOnBigImageDetail">
+            <div class="row valign-wrapper" id="gameDetailInfo">
+                <div class="col s12 valign white-text">
+                    نتایج جستجو برای {{searched}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col s8">
+                    <div class="row ">
+                        <!--<div id="simItem" class="col l3 m6 s12" >-->
+                        <div id="sim" class="card hoverable col l4 m6 s12 no-padding" *ngFor="let g of games" >
+                            <div class="card-image">
+                                <img class="responsive-image"  [src]="g.small_image" width="30px">
+                            </div>
+                            <div id="cardStuff" class="card-content right blue-text row">
+                                <div id="cardTitle" class="right col s12">{{ g.title }}</div>
+                                <span class="right grey-text text-darken-2" *ngFor="let category of categories">
+                                        {{category}},
+                                    </span>
+                                    <div class="col s12 right">
+                                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=1"></i>
+                                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<1"></i>
+                                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=2"></i>
+                                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<2"></i>
+                                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=3"></i>
+                                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<3"></i>
+                                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=4"></i>
+                                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<4"></i>
+                                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=5"></i>
+                                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<5"></i>
+                                    </div>
+                                </div>
+
+
+                            <!--</div>-->
+                        </div>
+                    </div>
+            </div>
+            <div class="col s4 ">
+                <div id="filters" class="card-panel grey lighten-4">
+
+                        <ul class="collection no-padding grey lighten-4">
+                            <li class="collection-header grey-text">دسته‌بندی بازی‌ها</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">همه</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">اکشن</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">اول‌شخص</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">سوم شخص</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">ورزشی</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">فکری</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">نقش‌آفرینی</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">استراتژیک</li>
+                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">ماجراجویی</li>
+                        </ul>
+
+                </div>
+
+                <div id="scoreFilter" class="card-panel grey lighten-4">
+
+                    <ul class="collection no-padding grey lighten-4">
+                        <li class="collection-header grey-text">امتیاز بازی‌ها</li>
+                        <li  class="rateStar collection-item grey lighten-4 center">
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                        </li>
+                        <li class="rateStar  collection-item grey lighten-4 center">
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                        </li>
+                        <li class="rateStar collection-item grey lighten-4 center">
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                        </li>
+                        <li class="rateStar collection-item grey lighten-4 center">
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                        </li>
+                        <li class="rateStar collection-item grey lighten-4 center">
+                            <i class="fa fa-star blue-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                        </li>
+                        <li class="rateStar collection-item grey lighten-4 hover center">
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                            <i class="fa fa-star grey-text"  aria-hidden="true"></i>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

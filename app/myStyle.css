@@ -1,0 +1,239 @@
+
+body{
+	margin: 0;
+}
+
+
+#bigImage, #bigImage h2, #bigImage pre{
+	direction: rtl;
+	font-family: IRANSans;
+}
+
+#bigImage span{
+	position: relative;
+	bottom: 5px;
+	right: 3px;
+}
+
+#InfoOnBigImage{
+	position: relative;
+	margin-top: 20%;
+}
+
+
+#main{
+	position: relative;
+	height: 800px;
+	width: 100vw;
+	/*background-image : url('app'+{{ currentGame.large_image }});*/
+	background-repeat: no-repeat;
+   background-size:cover;
+
+}
+
+#endPhoto{
+	position: relative;
+	height: 400px;
+	width: 100vw;
+	background-image : url('app/img/assassin.jpg');
+	background-repeat: no-repeat;
+   background-size:cover;
+}
+
+#overlay{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+background: rgba(82,82,82,0.87);
+background: -moz-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(82,82,82,0.87)), color-stop(67%, rgba(41,32,32,0.94)), color-stop(100%, rgba(41,32,32,0.97)));
+background: -webkit-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+background: -o-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+background: -ms-linear-gradient(top, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+background: linear-gradient(to bottom, rgba(82,82,82,0.87) 0%, rgba(41,32,32,0.94) 67%, rgba(41,32,32,0.97) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#525252', endColorstr='#292020', GradientType=0 );
+
+}
+
+#overlayBlue{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #1e88e5 !important;
+	color: solid white;
+	opacity: 0.8;
+	z-index: 500;
+	/*padding-top: ;*/
+}
+
+#infoOnEndPhoto{
+	/*margin-top: 300px*/
+	width: 800px;
+	height: 100%;
+	position: absolute;
+	z-index: 10000;
+	opacity: 1;
+}
+
+#infoOnEndphoto h2{
+	font-weight: 700;
+	margin-top: 70px;
+}
+
+#textOn h2{
+	margin-top: 0;
+	font-weight: 700;
+}
+
+#date{
+	font-size: 10px;
+}
+
+#comments li{
+	border-bottom: 1px #d5d5d5 solid;
+}
+
+#textOn{
+	padding-top: 80px;
+}
+
+nav{
+	font-family: IRANSans;
+	outline: none;
+	box-shadow: none;
+}
+
+
+.slider li{
+	font-family: IRANSans;
+	list-style: none;
+	/*display: inline-block;*/
+	float: right;
+	height: 200px;
+	background-size: cover;
+	background-repeat: none;
+	background-position: center;
+	direction: rtl;
+	margin-right: 0;
+	padding: 0px;
+	/*z-index: -100;*/
+}
+
+
+#gameTitleSlider{
+	font-size: 1.5rem;
+	font-weight: 600;
+	direction: rtl;
+}
+
+#gameCommentsNumberSlider{
+	font-size: 1rem;
+	direction: rtl;
+}
+
+slider .row{
+	clear: both;
+
+}
+
+*{
+	font-family: IRANSans;
+	direction: rtl;
+}
+
+.star-ratings-sprite{
+	margin: 0;
+}
+
+.card{
+	padding-left: 0px;
+	padding-right: 0px;
+
+}
+
+#sliderOverlay{
+	background: blue;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+#commentsAndTutorials{
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-bottom: 0;
+}
+
+
+#footerAndLinks{
+	background: #fafafa;
+}
+
+#footer li{
+
+	padding: 10px 10px 0 10px;
+}
+
+#links{
+	margin-bottom: 0px;
+	padding-bottom: 10px;
+}
+
+#links li{
+	/*padding: 4px 4px 0 4px;*/
+}
+
+#links ul {
+	overflow: auto;
+}
+
+#links ul li {
+	list-style-type: none;
+	float: left;
+}
+
+#links ul li i {
+	background: grey;
+	color: #fff;
+	width: 40px;
+	height: 34px;
+	border-radius: 20px;
+	font-size: 25px;
+	text-align: center;
+	margin-right: 10px;
+	padding-top: 15%;
+}
+
+#allRightsReserved{
+	padding: 20px;
+}
+
+#allRightsReserved h5{
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#amirkabir i{
+	position: relative;
+	bottom: 4px;
+}
+
+
+
+.InfoHead{
+	font-size: 32px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #e0e0e0 ;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="InfoHead grey-text text-darken-2">
+       بازی‌های مشابه
+    </div>
+   <!--<gameCard></gameCard>-->
+    <div class="row">
+                <!--<div id="simItem" class="col l3 m6 s12" >-->
+                    <div id="sim" class="card hoverable col l3 m6 s12 no-padding" *ngFor="let g of games" >
+                            <div class="card-image">
+                                <img class="responsive-image"  [src]="g.small_image" width="30px">
+                            </div>
+                            <div class="card-content right blue-text row">
+                                <div id="cardTitle" class="right col s12">{{ g.title }}</div>
+                                <span class="right grey-text text-darken-2" *ngFor="let category of categories">
+                                    {{category}},
+                                </span>
+                                <starsShow></starsShow>
+                            </div>
+
+                    <!--</div>-->
+                </div>
+    </div>
+</div>

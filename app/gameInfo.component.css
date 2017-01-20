@@ -1,0 +1,13 @@
+.InfoHead{
+    font-size: 40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0 ;
+}
+
+p{
+    direction: rtl;
+    font-size: 19px;
+    text-align: justify;
+    line-height: 1.9;
+}

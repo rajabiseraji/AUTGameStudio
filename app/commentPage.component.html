@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row" id="commentHead">
+        <div class="head grey-text text-darken-2 col s7 right">
+            نظرات کاربران ({{selectedGame.number_of_comments}} نظر )
+        </div>
+        <div class="col s5">
+            <a (click)="onClick()" class="btn blue white-text left" id="leaveComment">نظر دهید</a>
+        </div>
+    </div>
+    <ul id="comments" class="collection striped">
+        <li id="collection" *ngFor="let comment of commentsTest" class="row collection-item avatar">
+            <div class="col s1 right">
+                <img class="circle" src="{{ comment.player.URL }}">
+            </div>
+            <div  class="col s11 right">
+                <div class="grey-text col-s12 right" id="date">{{ comment.date }}</div>
+                <span class="left grey-text" *ngIf="comment.rate>0">
+                    <!--<i class="fa fa-star"  aria-hidden="true" ></i>-->
+                    <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="comment.rate>=1"></i>
+                    <i class="fa fa-star"  aria-hidden="true" *ngIf="comment.rate<1"></i>
+                    <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="comment.rate>=2"></i>
+                    <i class="fa fa-star"  aria-hidden="true" *ngIf="comment.rate<2"></i>
+                    <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="comment.rate>=3"></i>
+                    <i class="fa fa-star"  aria-hidden="true" *ngIf="comment.rate<3"></i>
+                    <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="comment.rate>=4"></i>
+                    <i class="fa fa-star"  aria-hidden="true" *ngIf="comment.rate<4"></i>
+                    <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="comment.rate>=5"></i>
+                    <i class="fa fa-star"  aria-hidden="true" *ngIf="comment.rate<5"></i>
+                </span>
+                <br><div class="blue-text">{{comment.player.name}}: {{ comment.text }}</div>
+            </div>
+        </li>
+    </ul>
+    <div class="center row">
+        <a class="btn blue white-text">بارگذاری نظرات بعدی</a>
+    </div>
+</div>

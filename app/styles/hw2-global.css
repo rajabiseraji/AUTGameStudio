@@ -1,0 +1,213 @@
+/* 	global css rules in hw2 pages like font-family (@font-face), boxes, and login-register inputs
+	author: 9231039;
+	date: dd-mm-yy;
+	version: 0.1;
+*/
+
+
+@font-face {
+  font-family: Shabnam;
+  src: url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-FD-WOL.eot');
+  src: url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-FD-WOL.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-FD-WOL.woff') format('woff'),
+       url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-FD-WOL.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Shabnam;
+  src: url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Bold-FD-WOL.eot');
+  src: url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Bold-FD-WOL.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Bold-FD-WOL.woff') format('woff'),
+       url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Bold-FD-WOL.ttf') format('truetype');
+   font-weight: bold;
+}
+
+@font-face {
+  font-family: Shabnam;
+  src: url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Light-FD-WOL.eot');
+  src: url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Light-FD-WOL.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Light-FD-WOL.woff') format('woff'),
+       url('../assets/fonts/Farsi-Digits-Without-Latin/Shabnam-Light-FD-WOL.ttf') format('truetype');
+  font-weight: 300;
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: "Shabnam", sans-serif;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+    line-height: 1.6;
+}
+
+.row{
+	line-height: 1.6;
+}
+
+input{
+	padding-bottom: 10px;
+	padding-right: 0;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.col-off-1 {left: 8.33%;margin-left: 8.33%}
+.col-off-2 {left: 16.66%;margin-left: 16.66%}
+.col-off-3 {left: 25%; margin-left: 25%}
+.col-off-4 {left: 33.33%;margin-left: 33.33%}
+.col-off-5 {left: 41.66%;margin-left: 41.66%}
+.col-off-6 {left: 50%;margin-left: 50%}
+.col-off-7 {left: 58.33%;margin-left: 58.33%}
+.col-off-8 {left: 66.66%;margin-left: 66.66%}
+.col-off-9 {left: 75%;margin-left: 75%}
+.col-off-10 {left: 83.33%;margin-left: 83.33%}
+.col-off-11 {left: 91.66%;margin-left: 91.66%}
+.col-off-12 {left: 100%;margin-left: 100%}
+
+
+body {
+	background-color: rgb(65,117,165);
+	padding: 0;
+	margin: 0;
+	font-family: "Shabnam", sans-serif;
+}
+
+header, nav{
+	padding-top: 0;
+	padding-bottom: 1px;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background-color: rgb(77,77,77);
+	font-family: "Shabnam", sans-serif;
+	font-size: 30px;
+	color: white;
+	box-shadow: rgb(77,77,77) 0px 0px 1px 0.5px;
+}
+
+nav i{
+	color: white;
+	padding-left: 10%;
+}
+
+#title{
+	padding-right: 10%;
+	float: right;
+}
+
+.fa-envelope, .fa-lock, .fa-user{
+	color: rgb(128,128,128);
+}
+
+
+section{
+	margin-top: 8%;
+		margin-bottom: 10%;
+}
+
+.brand{
+	color: rgb(128,128,128);
+	text-align: center;
+	padding-bottom: 5%;
+	padding-top: 5%;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+
+
+.modal{
+	padding: 0;
+	position: relative;
+	margin: auto;
+	min-width: 252px;
+	direction: rtl;
+	background: rgb(245,245,245);
+	-webkit-border-radius: 2px ;
+	        border-radius: 2px ;
+	box-shadow: rgb(88,88,88) 1px 1px 8px 1px; 
+	transition: 1s ease;
+}
+
+.form{
+	padding: 0;
+}
+
+a{
+	text-align: center;
+	padding-bottom: 1px;
+	text-decoration: none;
+	border-bottom: 1px solid;
+}
+
+a:focus{
+	outline: none;
+}
+
+label {
+	padding: 0;
+}
+
+input{
+	border-width: 0 0 0 0;
+	background: none;
+	border-color: none;
+	padding-bottom: 0; 
+}
+
+.box{
+	border-bottom: 2px solid rgb(128,128,128);
+	padding-right: 1px;
+	padding-bottom: 2px;
+}
+
+
+
+input:focus{
+	border-bottom-color: rgb(217,52,108); 
+}
+
+input[type="submit"]{
+	background: rgb(217,52,108);
+	color: white;
+	border: none;
+	margin-top: 5px;
+}
+
+
+
+input:focus{
+	outline: none;
+}
+
+ /*.box input:focus ~ label i {
+	color: rgb(217,52,108);
+}*/
+
+
+.fa-envelope{
+	margin-right: -5px;
+}
+
+input:focus ~ label i{
+	color: rgb(217,52,108); 
+}

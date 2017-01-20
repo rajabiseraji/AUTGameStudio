@@ -1,0 +1,34 @@
+#filters, #scoreFilter{
+    border: solid 1px #cccccc;
+}
+
+.rateStar i{
+    font-size: 24px;
+    text-align: center;
+}
+
+#simItem{
+    padding: 10px;
+}
+
+#cardStuff{
+    margin-bottom: 40px;
+}
+
+.card-content{
+    /*margin-bottom: 20px;*/
+    /*padding-bottom: ;*/
+}
+
+#firstBar{
+    height: 200px;
+}
+
+#gameDetailInfo{
+    height: 135px;
+}
+
+#gameDetailInfo div{
+    font-size: 30px;
+}
+
