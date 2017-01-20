@@ -1,5 +1,7 @@
 
 export class Player {
-  name:string;
-  URL: string; //this must be parsed as a URL
+  constructor(
+  public name:string,
+  public URL: string //this must be parsed as a URL
+  ){};
 }

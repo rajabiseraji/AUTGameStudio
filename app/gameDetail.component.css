@@ -68,7 +68,10 @@
     line-height: 0.5;
 }
 
-
+#mainDetail{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .tabSelected{
     border-bottom: 2px #1976d2 solid;

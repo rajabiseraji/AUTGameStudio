@@ -5,7 +5,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent }  from './app.component';
-import { HttpModule }    from '@angular/http';
+import { HttpModule, JsonpModule }    from '@angular/http';
 
 // import { AppRoutingModule } from './app-routing.module';
 
@@ -47,8 +47,8 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
+    JsonpModule,
     ModalModule.forRoot(),
     BootstrapModalModule
   ],

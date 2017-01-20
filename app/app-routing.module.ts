@@ -19,7 +19,7 @@ const routes : Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'search', component: SearchPageComponent},
-    {path: 'gameDetail', component: GameDetailComponent, children: [
+    {path: ':game', component: GameDetailComponent, children: [
         {path: 'info', component: GameInfoComponent, outlet: 'route1'},
         {path: 'similar', component: SimilarGamesComponent, outlet: 'route1'},
         {path: 'comments', component: CommentPageComponent, outlet: 'route1'},

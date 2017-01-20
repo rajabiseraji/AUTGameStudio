@@ -4,6 +4,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { GameService } from './game.service';
 import {Game} from './game';
+import {Category} from './category';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class SearchPageComponent implements OnInit {
             title: 'بازی سازی امیرکبیر',
             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
             info: 'اوره دیگه',
-            Complete: 'کامل کامل کامل',
+            categories: [new Category('اکشن'), new Category('چرت')],
             rate: 2,
             large_image: 'app/img/call-of-duty-background-18.jpg',
             small_image: 'app/img/call-of-duty-background-18.jpg',
@@ -37,7 +38,7 @@ export class SearchPageComponent implements OnInit {
             title: 'بازی سازی امیرکبیر',
             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
             info: 'اوره دیگه',
-            Complete: 'کامل کامل کامل',
+            categories: [new Category('اکشن'), new Category('چرت')],
             rate: 2,
             large_image: 'app/img/call-of-duty-background-18.jpg',
             small_image: 'app/img/call-of-duty-background-18.jpg',
@@ -47,7 +48,7 @@ export class SearchPageComponent implements OnInit {
             title: 'بازی GTA V',
             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
             info: 'اوره دیگه',
-            Complete: 'کامل کامل کامل',
+            categories: [new Category('اکشن'), new Category('چرت')],
             rate: 2,
             large_image: 'app/img/23815901722_4d1edf4ed1_b.jpg',
             small_image: 'app/img/23815901722_4d1edf4ed1_b.jpg',
@@ -57,7 +58,7 @@ export class SearchPageComponent implements OnInit {
             title: 'بازی Uncharted',
             abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
             info: 'اوره دیگه',
-            Complete: 'کامل کامل کامل',
+            categories: [new Category('اکشن'), new Category('چرت')],
             rate: 2,
             large_image: 'app/img/421645.jpg',
             small_image: 'app/img/421645.jpg',

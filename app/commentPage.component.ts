@@ -7,6 +7,7 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { GameService } from './game.service';
 import { Game } from './game';
 import {Comment} from './comment';
+import {Category} from './category';
 
 @Component({
     moduleId : module.id,
@@ -46,7 +47,7 @@ export class CommentPageComponent implements OnInit{
         title: 'بازی Uncharted',
         abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
         info: 'اوره دیگه',
-        Complete: 'کامل کامل کامل',
+        categories: [new Category('اکشن'), new Category('چرت')],
         rate: 2,
         large_image: 'app/img/421645.jpg',
         small_image: 'app/img/421645.jpg',
@@ -67,7 +68,7 @@ export class CommentPageComponent implements OnInit{
                 title: 'بازی سازی امیرکبیر',
                 abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
                 info: 'اوره دیگه',
-                Complete: 'کامل کامل کامل',
+                categories: [new Category('اکشن'), new Category('چرت')],
                 rate: 2,
                 large_image: 'img/call-of-duty-background-18.jpg',
                 small_image: 'img/call-of-duty-background-18.jpg',
@@ -86,7 +87,7 @@ export class CommentPageComponent implements OnInit{
                 title: 'بازی سازی امیرکبیر',
                 abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
                 info: 'اوره دیگه',
-                Complete: 'کامل کامل کامل',
+                categories: [new Category('اکشن'), new Category('چرت')],
                 rate: 2,
                 large_image: 'img/call-of-duty-background-18.jpg',
                 small_image: 'img/call-of-duty-background-18.jpg',
@@ -105,7 +106,7 @@ export class CommentPageComponent implements OnInit{
                 title: 'بازی سازی امیرکبیر',
                 abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
                 info: 'اوره دیگه',
-                Complete: 'کامل کامل کامل',
+                categories: [new Category('اکشن'), new Category('چرت')],
                 rate: 2,
                 large_image: 'img/call-of-duty-background-18.jpg',
                 small_image: 'img/call-of-duty-background-18.jpg',
@@ -123,7 +124,7 @@ export class CommentPageComponent implements OnInit{
                 title: 'بازی سازی امیرکبیر',
                 abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
                 info: 'اوره دیگه',
-                Complete: 'کامل کامل کامل',
+                categories: [new Category('اکشن'), new Category('چرت')],
                 rate: 2,
                 large_image: 'img/call-of-duty-background-18.jpg',
                 small_image: 'img/call-of-duty-background-18.jpg',

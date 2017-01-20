@@ -1,4 +1,4 @@
-<div id="main" [style.backgroundImage]="'url(app/' + currentGame.large_image + ')'">
+<div id="main" *ngIf="currentGame" [style.backgroundImage]="'url(' + currentGame.small_image + ')'">
     <div id="overlay"></div>
     <div class="container">
         <nav class="transparent ">
@@ -16,14 +16,14 @@
                     <h2 class="col s12 white-text">{{ currentGame.title }}</h2>
                 </div>
                 <div class="row">
-                    <pre class="col s12 white-text">{{ currentGame.abstract }}</pre>
+                    <p class="col s12 white-text">{{ currentGame.abstract }}</p>
                 </div>
                 <div class="row">
                     <div class="col s4 white-text">
-                        <a href="#!" class="white-text"><i class="fa fa-play-circle fa-2x" aria-hidden="true"></i><span>تریلر این بازی</span></a>
+                        <a class="white-text"><i class="fa fa-play-circle fa-2x" aria-hidden="true"></i><span>تریلر این بازی</span></a>
                     </div>
                     <div class="col s7">
-                        <a href="#!" class="btn blue">ورود به صفحه‌ی بازی</a>
+                        <a [routerLink]="'/'+currentGame.title"  class="btn blue">ورود به صفحه‌ی بازی</a>
                     </div>
                 </div>
             </div>
@@ -31,14 +31,14 @@
     </div>
 </div>
 <div id="slider" class="row slider">
-    <li class="col s2 right" *ngFor="let game of games" [style.backgroundImage]="'url(app/' + game.large_image + ')'">
+    <li class="col s2 right" *ngFor="let game of games" [style.backgroundImage]="'url(' + game.small_image + ')'">
         <!-- <div id="sliderOverlay" class="row right"></div> -->
         <div class="row right">
             <div id="gameTitleSlider" class="right">{{ game.title }}</div>
             <div id="gameCommentsNumberSlider">تعداد نظرات: {{ game.number_of_comments }}</div>
         </div>
         <div class="row right">
-            <a class="btn white grey-text" href="">
+            <a class="btn white grey-text" [routerLink]="'/'+game.title" >
                 صفحه بازی
             </a>
         </div>
@@ -49,6 +49,35 @@
 <div class="container">
     <div id="newGames" class="row">
         <!--<gameCard></gameCard>-->
+        <h4><strong>جدیدترین بازی‌ها</strong></h4>
+        <div class="row">
+            <div id="sim"  class="card hoverable col l3 m6 s12 no-padding" style="margin-left: 10px" *ngFor="let g of newGames" >
+                <div class="card-image" (click)="goTo(g.title)">
+                    <img class=""  [src]="g.small_image" width="30px" height="200px">
+                </div>
+                <div (click)="goTo(g.title)" id="cardStuff" class="card-content right blue-text row">
+                    <div id="cardTitle" class="right col s12">{{ g.title }}</div>
+                    <span class="right grey-text text-darken-2" *ngFor="let category of g.categories">
+                                        {{category}},
+                                    </span>
+                    <div class="col s12 right">
+                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=1"></i>
+                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<1"></i>
+                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=2"></i>
+                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<2"></i>
+                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=3"></i>
+                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<3"></i>
+                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=4"></i>
+                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<4"></i>
+                        <i class="fa fa-star blue-text"  aria-hidden="true" *ngIf="g.rate>=5"></i>
+                        <i class="fa fa-star grey-text"  aria-hidden="true" *ngIf="g.rate<5"></i>
+                    </div>
+                </div>
+
+
+                <!--</div>-->
+            </div>
+        </div>
     </div>
 </div>
 <div id="commentsAndTutorials" class="row grey lighten-3">
@@ -65,7 +94,7 @@
                 <ul id="comments">
                     <li *ngFor="let comment of commentsTest" class="row">
                         <div class="col s2  right">
-                            <img class="circle responsive-image" width="50px" height="50px" src="{{ comment.player.URL }}">
+                            <img class="circle responsive-image" width="50px" height="50px" src="{{ comment.player.avatar }}">
                         </div>
                         <div class="col s10 right">
                             <span class="blue-text">{{ comment.text }}</span>

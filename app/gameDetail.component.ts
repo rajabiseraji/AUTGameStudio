@@ -7,7 +7,8 @@ import { GameService } from './game.service';
 import { Game } from './game';
 import {Comment} from './comment';
 import { Player } from './player';
-import { Tutorial } from './tutorial';
+import { Category } from './category';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     moduleId : module.id,
@@ -15,27 +16,36 @@ import { Tutorial } from './tutorial';
 
     // directives: [OwlCarousel],
     templateUrl: 'gameDetail.component.html',
-    styleUrls: ['gameDetail.component.css', 'materialize.css', 'mystyle.css', 'font-awesome.min.css']
+    styleUrls: ['gameDetail.component.css', 'materialize.css', 'mystyle.css', 'font-awesome.min.css','starsShow.component.css']
 })
 export class GameDetailComponent implements OnInit{
-    currentGame : Game =  {
-        title: 'بازی سازی امیرکبیر',
-        abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-        info: 'اوره دیگه',
-        Complete: 'کامل کامل کامل',
-        rate: 2,
-        large_image: 'img/call-of-duty-background-18.jpg',
-        small_image: '/app/img/call-of-duty-background-18.jpg',
-        number_of_comments: 23
-    };
+    currentGame : Game;
+
 
     categories: Array<string> = [
         "اکشن", "هیجانی", "چرت و پرت"
-    ]
+    ];
+
+    curGameName: string;
+    constructor(public gameServe: GameService,private route: ActivatedRoute){
+    }
 
     ngOnInit(): void {
-
+        this.route.params.subscribe(params => {
+            this.curGameName = params['game'];
+            if (this.curGameName) {
+                this.gameServe.getGame(this.curGameName)
+                    .subscribe(
+                        game => this.currentGame = game, //Bind to view
+                        err => {
+                            // Log errors if any
+                            console.log(err);
+                        });
+            }
+        });
     }
+
+
 
 
 }

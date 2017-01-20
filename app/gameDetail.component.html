@@ -1,4 +1,4 @@
-<div id="mainDetail" [style.backgroundImage]="'url(app/' + currentGame.large_image + ')'">
+<div id="mainDetail" *ngIf="currentGame" [style.backgroundImage]="'url(' + currentGame.large_image + ')'">
     <div id="overlayDetail"></div>
     <div class="container" id="InfoOnBigImageDetail">
         <div class="row" id="gameDetailInfo">
@@ -10,12 +10,14 @@
                     {{currentGame.title}}
                 </div>
                 <div class="row" id="gameDetailCategories">
-                    <span class="right white-text" *ngFor="let category of categories">
+                    <span class="right white-text" *ngFor="let category of currentGame.categories">
               	        {{category}},
                     </span>
                 </div>
                 <div class="row">
-                    <div class="col s3 right" id="starDetail"><starsShow></starsShow></div>
+                    <div class="col s3 right" id="starDetail">
+                        <div class="star-ratings-sprite"><span [style.width.%]="currentGame.rate*20" class="star-ratings-sprite-rating"></span></div>
+                    </div>
                     <span id="gameDetailRate" class="white-text">{{currentGame.rate}} ({{currentGame.number_of_comments}})</span>
                 </div>
             </div>
@@ -27,11 +29,11 @@
 </div>
 <div class="grey lighten-3 row" id="tabHead">
     <div class="container">
-        <div class="col s2 grey-text right center-align tabSelected"><a [routerLink]="['/gameDetail', {outlets: {'route1':['info']}}]">اطلاعات بازی</a></div>
-        <div class="col s3 grey-text right center-align"><a [routerLink]="['/gameDetail', {outlets: {'route1':['ranking']}}]">رتبه‌بندی و امتیازات</a></div>
-        <div class="col s2 grey-text right center-align"><a [routerLink]="['/gameDetail', {outlets: {'route1':['comments']}}]">نظرات کاربران</a></div>
-        <div class="col s2 grey-text right center-align"><a [routerLink]="['/gameDetail', {outlets: {'route1':['similar']}}]">بازی‌های مشابه</a></div>
-        <div class="col s3 grey-text right center-align"><a [routerLink]="['/gameDetail', {outlets: {'route1':['media']}}]">عکس‌ها و ویدئوها</a></div>
+        <div class="col s2 grey-text right center-align tabSelected"><a [routerLink]="['/'+curGameName, {outlets: {'route1':['info']}}]">اطلاعات بازی</a></div>
+        <div class="col s3 grey-text right center-align"><a [routerLink]="['/'+curGameName, {outlets: {'route1':['ranking']}}]">رتبه‌بندی و امتیازات</a></div>
+        <div class="col s2 grey-text right center-align"><a [routerLink]="['/'+curGameName, {outlets: {'route1':['comments']}}]">نظرات کاربران</a></div>
+        <div class="col s2 grey-text right center-align"><a [routerLink]="['/'+curGameName, {outlets: {'route1':['similar']}}]">بازی‌های مشابه</a></div>
+        <div class="col s3 grey-text right center-align"><a [routerLink]="['/'+curGameName, {outlets: {'route1':['media']}}]">عکس‌ها و ویدئوها</a></div>
     </div>
 </div>
 <router-outlet name="route1"></router-outlet>
