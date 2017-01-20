@@ -71,6 +71,13 @@ export class GameService {
         .catch(this.handleError);
   }
 
+  search(token: string): Observable<Game[]>{
+    const url = `http://api.ie.ce-it.ir/F95/games?q=${token}`;
+    return this.jsonp.get(url)
+        .map(this.extractGamesRelated)
+        .catch(this.handleError);
+  }
+
 
 
   getGame(id: string): Observable<Game> {

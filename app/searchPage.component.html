@@ -1,5 +1,5 @@
 <div class="row" id="firstBar" >
-    <div id="mainDetail" [style.backgroundImage]="'url('+currentGame.large_image+')'">
+    <div id="mainDetail" [style.backgroundImage]="'url(app/img/421645.jpg)'">
         <div id="overlayDetail"></div>
         <div class="container" id="InfoOnBigImageDetail">
             <div class="row valign-wrapper" id="gameDetailInfo">
@@ -18,12 +18,12 @@
                     <div class="row ">
                         <!--<div id="simItem" class="col l3 m6 s12" >-->
                         <div id="sim" class="card hoverable col l4 m6 s12 no-padding" *ngFor="let g of games" >
-                            <div class="card-image">
+                            <div (click)="goTo(g.title)" class="card-image">
                                 <img class="responsive-image"  [src]="g.small_image" width="30px">
                             </div>
-                            <div id="cardStuff" class="card-content right blue-text row">
+                            <div (click)="goTo(g.title)" id="cardStuff" class="card-content right blue-text row">
                                 <div id="cardTitle" class="right col s12">{{ g.title }}</div>
-                                <span class="right grey-text text-darken-2" *ngFor="let category of categories">
+                                <span class="right grey-text text-darken-2" *ngFor="let category of g.categories">
                                         {{category}},
                                     </span>
                                     <div class="col s12 right">

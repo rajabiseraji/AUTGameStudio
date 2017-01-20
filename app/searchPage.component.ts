@@ -5,7 +5,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { GameService } from './game.service';
 import {Game} from './game';
 import {Category} from './category';
-
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     moduleId : module.id,
@@ -16,60 +16,31 @@ import {Category} from './category';
     styleUrls: ['gameCard.component.css','gameDetail.component.css','searchPage.component.css', 'materialize.css', 'mystyle.css', 'font-awesome.min.css']
 })
 export class SearchPageComponent implements OnInit {
-    ngOnInit(): void {
+
+    games : Array<Game>;
+    searched: string;
+
+    constructor(private route: ActivatedRoute, public gameService: GameService, private router: Router){
+
     }
 
-    searched: string = "FIFA";
+    ngOnInit(): void {
+        this.route.params.subscribe(params => {
+            this.searched = params['keyword'];
+            if (this.searched) {
+                this.gameService.search(this.searched)
+                    .subscribe(
+                        game => this.games = game, //Bind to view
+                        err => {
+                            // Log errors if any
+                            console.log(err);
+                        });
+            }
+        });
+    }
 
-
-    games : Array<Game> = [
-        {
-            title: 'بازی سازی امیرکبیر',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/call-of-duty-background-18.jpg',
-            small_image: 'app/img/call-of-duty-background-18.jpg',
-            number_of_comments: 23,
-
-        },
-        {
-            title: 'بازی سازی امیرکبیر',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/call-of-duty-background-18.jpg',
-            small_image: 'app/img/call-of-duty-background-18.jpg',
-            number_of_comments: 23
-        },
-        {
-            title: 'بازی GTA V',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/23815901722_4d1edf4ed1_b.jpg',
-            small_image: 'app/img/23815901722_4d1edf4ed1_b.jpg',
-            number_of_comments: 50
-        },
-        {
-            title: 'بازی Uncharted',
-            abstract: 'این بازی چرت است و پرت است واین چیزا و اینا و اینا و این چیزا',
-            info: 'اوره دیگه',
-            categories: [new Category('اکشن'), new Category('چرت')],
-            rate: 2,
-            large_image: 'app/img/421645.jpg',
-            small_image: 'app/img/421645.jpg',
-            number_of_comments: 73
-        }
-    ];
-
-    categories: Array<string> = [
-        "اکشن", "هیجانی", "چرت و پرت"
-    ];
-
-    currentGame: Game = this.games[2];
+    goTo(gameTitle: string){
+        this.router.navigate(['/',gameTitle]);
+    }
 
 }

@@ -18,7 +18,7 @@ const routes : Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'search', component: SearchPageComponent},
+    {path: 'list/:keyword', component: SearchPageComponent},
     {path: ':game', component: GameDetailComponent, children: [
         {path: 'info', component: GameInfoComponent, outlet: 'route1'},
         {path: 'similar', component: SimilarGamesComponent, outlet: 'route1'},
@@ -29,7 +29,7 @@ const routes : Routes = [
     {path: 'login', component: LoginComponent ,  data: {hideNavbar: true}}
     ];
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [ RouterModule.forRoot(routes, {useHash: true}) ],
     exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

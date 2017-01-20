@@ -8,8 +8,8 @@
 				<li><a href="#" class="grey-text"><i class="grey-text fa fa-user fa-5x left" aria-hidden="true"></i>ورود</a></li>
 				<li><form>
 					<div class="input-field">
-						<input id="search" type="search" placeholder="جست‌وجو..." required>
-						<label for="search"><i class="grey-text fa fa-search fa-5x left" aria-hidden="true"></i></label>
+						<input (keyup.enter)="goTo(searchBox.value)" #searchBox id="search" type="search" placeholder="جست‌وجو..." required>
+						<label (click)="goTo(searchBox.value)" for="search"><i class="grey-text fa fa-search fa-5x left" aria-hidden="true"></i></label>
 					</div>
 				</form></li>
 			</ul>

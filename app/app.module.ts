@@ -36,7 +36,7 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-
+import {PathLocationStrategy, LocationStrategy} from '@angular/common';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
 // import $ from 'jquery';	
