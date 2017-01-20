@@ -50,15 +50,15 @@
 
                         <ul class="collection no-padding grey lighten-4">
                             <li class="collection-header grey-text">دسته‌بندی بازی‌ها</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">همه</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">اکشن</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">اول‌شخص</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">سوم شخص</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">ورزشی</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">فکری</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">نقش‌آفرینی</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">استراتژیک</li>
-                            <li class="collection-item grey-text text-lighten-1 grey lighten-4">ماجراجویی</li>
+                            <li (click)="press(0, 'همه')" [ngClass]="{'lighten-3': clicked[0]}" class="collection-item grey-text text-lighten-1 grey lighten-4">همه</li>
+                            <li (click)="press(1, 'اکشن')" [ngClass]="{'lighten-3': clicked[1]}" class="collection-item grey-text text-lighten-1 grey lighten-4">اکشن</li>
+                            <li (click)="press(2, 'اول شخص')" [ngClass]="{'lighten-3': clicked[2]}" class="collection-item grey-text text-lighten-1 grey lighten-4">اول‌شخص</li>
+                            <li (click)="press(3, 'ورزشی')" [ngClass]="{'lighten-3': clicked[3]}" class="collection-item grey-text text-lighten-1 grey lighten-4">سوم شخص</li>
+                            <li (click)="press(4, 'فکری')" [ngClass]="{'lighten-3': clicked[4]}" class="collection-item grey-text text-lighten-1 grey lighten-4">ورزشی</li>
+                            <li (click)="press(5, 'فکری')" [ngClass]="{'lighten-3': clicked[5]}" class="collection-item grey-text text-lighten-1 grey lighten-4">فکری</li>
+                            <li (click)="press(6, 'نقش آفرینی')" [ngClass]="{'lighten-3': clicked[6]}" class="collection-item grey-text text-lighten-1 grey lighten-4">نقش‌آفرینی</li>
+                            <li (click)="press(7, 'استراتژیک')" [ngClass]="{'lighten-3': clicked[7]}" class="collection-item grey-text text-lighten-1 grey lighten-4">استراتژیک</li>
+                            <li (click)="press(8, 'ماجراجویی')" [ngClass]="{'lighten-3': clicked[8]}" class="collection-item grey-text text-lighten-1 grey lighten-4">ماجراجویی</li>
                         </ul>
 
                 </div>
@@ -67,42 +67,42 @@
 
                     <ul class="collection no-padding grey lighten-4">
                         <li class="collection-header grey-text">امتیاز بازی‌ها</li>
-                        <li  class="rateStar collection-item grey lighten-4 center">
+                        <li (click)="pressNum(0)" [ngClass]="{'lighten-3': clickedNum[0]}"  class="rateStar collection-item grey lighten-4 center">
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                         </li>
-                        <li class="rateStar  collection-item grey lighten-4 center">
+                        <li (click)="press(1)" [ngClass]="{'lighten-3': clickedNum[1]}" class="rateStar  collection-item grey lighten-4 center">
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                         </li>
-                        <li class="rateStar collection-item grey lighten-4 center">
+                        <li (click)="press(2)" [ngClass]="{'lighten-3': clickedNum[2]}" class="rateStar collection-item grey lighten-4 center">
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                         </li>
-                        <li class="rateStar collection-item grey lighten-4 center">
+                        <li (click)="press(3)" [ngClass]="{'lighten-3': clickedNum[3]}" class="rateStar collection-item grey lighten-4 center">
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                         </li>
-                        <li class="rateStar collection-item grey lighten-4 center">
+                        <li (click)="press(4)" [ngClass]="{'lighten-3': clickedNum[4]}" class="rateStar collection-item grey lighten-4 center">
                             <i class="fa fa-star blue-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                         </li>
-                        <li class="rateStar collection-item grey lighten-4 hover center">
+                        <li (click)="press(5)" [ngClass]="{'lighten-3': clickedNum[5]}" class="rateStar collection-item grey lighten-4 hover center">
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>
                             <i class="fa fa-star grey-text"  aria-hidden="true"></i>

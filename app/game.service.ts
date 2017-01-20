@@ -79,6 +79,22 @@ export class GameService {
   }
 
 
+  postFilter(f: Object, offset: number): Observable<Game[]>{
+    let url: string ;
+    if (offset==0)
+      url = `http://api.ie.ce-it.ir/F95/games_list.json`;
+    else
+      url = `http://api.ie.ce-it.ir/F95/games_list.json?offset=${offset}`;
+    let filters = JSON.stringify(f); // Stringify payload
+    // let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    // let options = new RequestOptions({ headers: headers }); // Create a request option
+    console.log(filters);
+    return this.jsonp.post(url, filters) // ...using post request
+        .map(this.extractGamesRelated) // ...and calling .json() on the response to return data
+        // .catch(this.handleError);
+  }
+
+
 
   getGame(id: string): Observable<Game> {
     const url = `http://api.ie.ce-it.ir/F95/games/${id}/header.json`;
@@ -99,6 +115,7 @@ export class GameService {
 
   private extractGamesRelated(res: Response) {
     let body = res.json();
+    console.log(body);
     return body.response.result.games || { };
   }
 
